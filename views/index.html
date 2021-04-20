@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coches</title>
+    <link rel="icon" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="../models/car.js"></script>
+    <script src="../models/wheel.js"></script>
+    <script src="../controllers/controller.js"></script>
+    <script src="../controllers/validate.js"></script>
+</head>
+
+<body>
+    <div class="cabecera p-4 mb-5 bg-info sticky-top">
+        <h1 class="text-white font-weight-bold">Ejercicio Coches</h1>
+    </div>
+    <div class="container col-8 col-md-6">      
+        <!-- Formulario coche -->
+        <div class="carForm d-flex flex-column align-items-center">
+            <form class="d-flex flex-wrap justify-content-center">
+                <div class="form-group mr-3 mb-0">
+                    <label>Matrícula</label>
+                    <input type="text" class="form-control" placeholder="Introduce matrícula" autocomplete="off"
+                        id="plate" onblur="inputPlate()">
+                    <div class="invalid-feedback" id="errorPlate"></div>
+                </div>
+                <div class="form-group mr-3 mb-0">
+                    <label>Marca</label>
+                    <input type="text" class="form-control" placeholder="Introduce marca" autocomplete="off" id="brand" onblur="inputBrand()">
+                    <div class="invalid-feedback" id="errorBrand"></div>
+                </div>
+                <div class="form-group mr-3 mr-lg-0 mb-0">
+                    <label>Color</label>
+                    <input type="text" class="form-control" placeholder="Introduce color" autocomplete="off" id="color" onblur="inputColor()">
+                    <div class="invalid-feedback" id="errorColor"></div>
+                </div>
+            </form>
+
+            <button id="createCar" class="btn-success mt-3 font-weight-bold rounded p-2" onclick="createCar()">Crear coche</button>
+        </div>
+
+        <!-- Formulario ruedas -->
+        <div class="wheelForm d-none">
+            <form class="d-flex flex-wrap justify-content-center">
+                <div class="form-group mr-3 mb-0">
+                    <label>Marca Rueda 1</label>
+                    <input type="text" class="form-control" autocomplete="off" id="marcaRueda1" onblur="inputWheelBrand(1)">
+                    <div class="invalid-feedback" id="errorWheelBrand1"></div>
+                </div>
+                <div class="form-group mr-3 mb-0">
+                    <label>Diámetro Rueda 1</label>
+                    <input type="number" step="0.01" class="form-control" autocomplete="off" id="diametroRueda1" onblur="inputDiameter(1)">
+                    <div class="invalid-feedback" id="errorDiameter1"></div>
+                </div>
+                <div class="form-group mr-3 mb-0">
+                    <label>Marca Rueda 2</label>
+                    <input type="text" class="form-control" autocomplete="off" id="marcaRueda2" onblur="inputWheelBrand(2)">
+                    <div class="invalid-feedback" id="errorWheelBrand2"></div>
+                </div>
+                <div class="form-group mr-3 mb-0">
+                    <label>Diámetro Rueda 2</label>
+                    <input type="number" step="0.01" class="form-control" autocomplete="off" id="diametroRueda2" onblur="inputDiameter(2)">
+                    <div class="invalid-feedback" id="errorDiameter2"></div>
+                </div>
+                <div class="form-group mr-3 mb-0">
+                    <label>Marca Rueda 3</label>
+                    <input type="text" class="form-control" autocomplete="off" id="marcaRueda3" onblur="inputWheelBrand(3)">
+                    <div class="invalid-feedback" id="errorWheelBrand3"></div>
+                </div>
+                <div class="form-group mr-3 mb-0">
+                    <label>Diámetro Rueda 3</label>
+                    <input type="number" step="0.01" class="form-control" autocomplete="off" id="diametroRueda3" onblur="inputDiameter(3)">
+                    <div class="invalid-feedback" id="errorDiameter3"></div>
+                </div>
+                <div class="form-group mr-3 mb-0">
+                    <label>Marca Rueda 4</label>
+                    <input type="text" class="form-control" autocomplete="off" id="marcaRueda4" onblur="inputWheelBrand(4)">
+                    <div class="invalid-feedback" id="errorWheelBrand4"></div>
+                </div>
+                <div class="form-group mr-3 mb-0">
+                    <label>Diámetro Rueda 4</label>
+                    <input type="number" step="0.01" class="form-control" autocomplete="off" id="diametroRueda4" onblur="inputDiameter(4)">
+                    <div class="invalid-feedback" id="errorDiameter4"></div>
+                </div>
+            </form>
+
+            <button id="addWheels" class="btn-success rounded font-weight-bold mt-3 p-2" onclick="ruedas(car)">Añadir ruedas</button>
+        </div>
+
+        <!-- Información coche -->
+        <div id="informacion"></div>
+
+    </div>
+</body>
+</html>
